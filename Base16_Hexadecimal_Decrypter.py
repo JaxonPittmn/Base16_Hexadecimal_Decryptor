@@ -16,23 +16,22 @@ digits = {'F': 0,
 				 '0': 15}
 
 
-def Challenge():
-	groupings = []
-	val = 0
-	decode = ""
-	scheme = input("Proprietary Scheme:\n")
-	for i in range(len(scheme)):
-		if not i % 2:
-			continue
-		groupings.append(scheme[i-1:i+1])
 
-	for group in groupings:
-		for i,letter in enumerate(group):
-			if i == 0:
-				val += digits[letter] * 16
-			elif i == 1:
-				val += digits[letter]
-		decode += chr(val)
-		val = 0
-	print(decode)
-Challenge()
+groupings = []
+val = 0
+decode = ""
+scheme = input("Proprietary Scheme:\n")
+for i in range(len(scheme)):
+	if not i % 2:
+		continue
+	groupings.append(scheme[i-1:i+1])
+
+for group in groupings:
+	for i,letter in enumerate(group):
+		if i == 0:
+			val += digits[letter] * 16
+		elif i == 1:
+			val += digits[letter]
+	decode += chr(val)
+	val = 0
+print(decode)
